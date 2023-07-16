@@ -1,13 +1,13 @@
 const url = "db.json";
 const url2 = 'https://jsonplaceholder.typicode.com/posts';
 
-const getData = url => {
+const getData = async url => {
   return fetch(url)
     .then(response => response.json())
     .catch(error => console.log(error))
 }
 
-const sendData = (url, user) => {
+const sendData = async (url, user) => {
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -15,6 +15,7 @@ const sendData = (url, user) => {
     },
     body: user
   }).then(response => response.json())
+    .catch(error => console.log(error))
 }
 
 getData(url)
